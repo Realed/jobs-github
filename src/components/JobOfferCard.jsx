@@ -14,6 +14,7 @@ const JobCard = styled.div`
   padding: 3px 10px;
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 
   .logo-box {
     width: 30%;
@@ -85,7 +86,7 @@ const JobCard = styled.div`
       justify-content: space-between;
       p {
         display: inline-block;
-        font-size: 0.8em;
+        font-size: 0.7em;
         color: ${colors.lightTheme.grayColor};
         font-weight: 600;
       }
@@ -93,40 +94,40 @@ const JobCard = styled.div`
   }
 `
 
-const JobOfferCard = () => {
-  return (
-    <>
-      <JobCard>
-        <div className="logo-box">
-          <img
-            src="https://jobs.github.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaTJUIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--17e537bed46c17a2a93de60195e7b50de0139b7f/Lawpilots.png"
-            alt=""
-          />
-        </div>
-        <div className="info-box">
-          <header>
-            <div className="company-box">
-              <h1>lawpilots GmbH</h1>
-            </div>
-          </header>
-          <main>
-            <div className="title-box">
-              <h1>Systemadministrator / IT Operations (m/w/d)</h1>
-            </div>
-            <div className="time-box">
-              <h1>Full Time</h1>
-            </div>
-          </main>
-          <footer>
-            <div className="location-box">
-              <p>New York</p>
-              <p>5 days ago</p>
-            </div>
-          </footer>
-        </div>
-      </JobCard>
-    </>
-  )
-}
+// const JobOfferCard = () => {
+//   return (
+//     <>
+//       <JobCard>
+//         <div className="logo-box">
+//           <img
+//             src="https://jobs.github.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaTJUIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--17e537bed46c17a2a93de60195e7b50de0139b7f/Lawpilots.png"
+//             alt=""
+//           />
+//         </div>
+//         <div className="info-box">
+//           <header>
+//             <div className="company-box">
+//               <h1>lawpilots GmbH</h1>
+//             </div>
+//           </header>
+//           <main>
+//             <div className="title-box">
+//               <h1>Systemadministrator / IT Operations (m/w/d)</h1>
+//             </div>
+//             <div className="time-box">
+//               <h1>Full Time</h1>
+//             </div>
+//           </main>
+//           <footer>
+//             <div className="location-box">
+//               <p>New York</p>
+//               <p>5 days ago</p>
+//             </div>
+//           </footer>
+//         </div>
+//       </JobCard>
+//     </>
+//   )
+// }
 
-export default JobOfferCard
+export default JobCard

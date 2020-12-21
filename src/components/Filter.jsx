@@ -17,15 +17,22 @@ const FilterWrapper = styled.div`
   .time-box {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    .time-check,
+    .country-check {
+      display: flex;
+      align-items: center;
+    }
 
     label {
       font-size: 0.9em;
     }
 
     input {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       margin-right: 8px;
     }
   }
@@ -58,11 +65,17 @@ const Filter = () => {
     <>
       <FilterWrapper>
         <div className="time-box">
-          <input type="checkbox" name="time" />
-          <label for="time">Full time</label>
+          <div className="time-check">
+            <input type="checkbox" name="time" />
+            <label htmlFor="time">Full time</label>
+          </div>
+          <div className="country-check">
+            <input type="checkbox" name="ownCountry" />
+            <label htmlFor="ownCountry">In my country</label>
+          </div>
         </div>
         <div className="location-box">
-          <label htmlFor="location">LOCATION</label>
+          {/* <label htmlFor="location">LOCATION</label> */}
           <input type="text" placeholder="City, state, zip code or country" />
         </div>
       </FilterWrapper>
