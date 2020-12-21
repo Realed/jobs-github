@@ -6,7 +6,28 @@ import colors from "../styles/colors"
 import fonts from "../styles/fonts"
 
 const FilterWrapper = styled.div`
-  padding: 10px 20px;
+  padding: 0;
+  margin-right: 15px;
+  max-width: 775px;
+  min-width: 275px;
+
+  @media only screen and (min-width: 1340px) {
+    width: 35%;
+    padding: 0;
+  }
+
+  @media only screen and (min-width: 950px) {
+    display: inline-block;
+    width: 40%;
+    padding: 10px 0;
+  }
+
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
 
   .time-box,
   .location-box {

@@ -1,4 +1,3 @@
-import React from "react"
 import styled from "styled-components"
 
 //Styles
@@ -24,6 +23,10 @@ const JobCard = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-start;
+
+    @media only screen and (min-width: 1050px) {
+      padding: 10px 5px;
+    }
 
     img {
       max-width: 80%;
@@ -91,6 +94,11 @@ const JobCard = styled.div`
         font-weight: 600;
       }
     }
+  }
+
+  &:hover {
+    background-color: #f8f8f8;
+    cursor: pointer;
   }
 `
 

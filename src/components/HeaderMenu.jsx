@@ -3,18 +3,32 @@ import styled from "styled-components"
 
 //Components
 import LogoBox from "./LogoBox"
-import Filter from "./Filter"
+// import Filter from "./Filter"
 
 //Styles
 import colors from "../styles/colors"
 import fonts from "../styles/fonts"
 const MenuBox = styled.div`
+  margin-left: auto;
+  margin-right: auto;
   min-height: 90px;
   width: 100%;
+
+  max-width: 1440px;
+  @media only screen and (min-width: 1440px) {
+    padding: 10px 9%;
+  }
+
+  @media only screen and (min-width: 950px) {
+    padding: 10px 5%;
+  }
+
+  @media only screen and (max-width: 949px) {
+    padding: 10px 2.5% 15px;
+  }
 `
 const SearchWrapper = styled.div`
   width: 100%;
-  padding: 10px;
 
   .search-box {
     border-radius: 8px;
@@ -28,6 +42,7 @@ const SearchWrapper = styled.div`
     align-items: center;
 
     .field-box {
+      max-width: 790px;
       width: 90%;
       height: 60px;
       background-color: ${colors.lightTheme.backColorAccent};
@@ -61,16 +76,21 @@ const SearchWrapper = styled.div`
         font-size: 1.1em;
         border-radius: 5px;
         color: white;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #4c96eb;
+        }
       }
     }
   }
 `
 
-const HeaderMenu = () => {
+const HeaderMenu = ({ darkTheme, handleDarkTheme }) => {
   return (
     <>
       <MenuBox>
-        <LogoBox />
+        <LogoBox darkTheme={darkTheme} handleDarkTheme={handleDarkTheme} />
         <SearchWrapper>
           <div className="search-box">
             <div className="field-box">
@@ -82,7 +102,6 @@ const HeaderMenu = () => {
             </div>
           </div>
         </SearchWrapper>
-        <Filter />
       </MenuBox>
     </>
   )
