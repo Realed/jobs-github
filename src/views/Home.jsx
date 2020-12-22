@@ -42,7 +42,7 @@ const JobsBoxWrapper = styled.div`
   }
 `
 
-const Home = () => {
+const Home = ({ history }) => {
   const [jobs, setJobs] = useState([])
   const [darkTheme, setDarkTheme] = useState(false)
 
@@ -63,43 +63,49 @@ const Home = () => {
     renderJobs("https://jobs.github.com/positions.json")
   }, [])
 
+  const handleRedirect = (job) => {
+    history.push(`/job/${job.title}`, job)
+  }
+
   return (
     <>
       <GlobalStyles />
-      <HeaderMenu darkTheme={darkTheme} handleDarkTheme={handleDarkTheme} />
-      <JobsBoxWrapper>
-        <Filter />
-        <JobsWrapper>
-          {jobs.map((job) => (
-            <JobCard key={id()}>
-              <div className="logo-box">
-                <img src={job.company_logo} alt="Job-Logo" />
-              </div>
-              <div className="info-box">
-                <header>
-                  <div className="company-box">
-                    <h1> {job.company} </h1>
-                  </div>
-                </header>
-                <main>
-                  <div className="title-box">
-                    <h1> {job.title} </h1>
-                  </div>
-                  <div className="time-box">
-                    <h1> {job.type} </h1>
-                  </div>
-                </main>
-                <footer>
-                  <div className="location-box">
-                    <p> {job.location} </p>
-                    <p>{Math.floor(Math.random() * 10)} Days ago</p>
-                  </div>
-                </footer>
-              </div>
-            </JobCard>
-          ))}
-        </JobsWrapper>
-      </JobsBoxWrapper>
+      <form action="">
+        <HeaderMenu darkTheme={darkTheme} handleDarkTheme={handleDarkTheme} />
+        <JobsBoxWrapper>
+          <Filter />
+          <JobsWrapper>
+            {jobs.map((job) => (
+              <JobCard key={id()} onClick={() => handleRedirect(job)}>
+                <div className="logo-box">
+                  <img src={job.company_logo} alt="Job-Logo" />
+                </div>
+                <div className="info-box">
+                  <header>
+                    <div className="company-box">
+                      <h1> {job.company} </h1>
+                    </div>
+                  </header>
+                  <main>
+                    <div className="title-box">
+                      <h1> {job.title} </h1>
+                    </div>
+                    <div className="time-box">
+                      <h1> {job.type} </h1>
+                    </div>
+                  </main>
+                  <footer>
+                    <div className="location-box">
+                      <p> {job.location} </p>
+                      <p>{Math.floor(Math.random() * 10)} Days ago</p>
+                    </div>
+                  </footer>
+                </div>
+              </JobCard>
+            ))}
+          </JobsWrapper>
+        </JobsBoxWrapper>
+      </form>
     </>
   )
 }
