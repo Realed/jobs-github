@@ -187,7 +187,7 @@ const JobPage = ({ location }) => {
   return (
     <>
       <GlobalStyles />
-      <LogoBox padding="10px 20px" />
+      <LogoBox padding="10px 20px" maxWidth="1100px" />
       <JobWrapper>
         <div className="back-box">
           <BackToSearch margin="20px 0" />

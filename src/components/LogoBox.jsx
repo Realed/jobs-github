@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import colors from "../styles/colors"
 
 //Styles
@@ -11,7 +11,8 @@ const LogoWrapper = styled.div`
   padding-bottom: 10px;
   padding: ${({ padding }) => padding};
   margin: ${({ margin }) => margin};
-  max-width: 1100px;
+
+  max-width: ${({ maxWidth }) => maxWidth};
   margin-left: auto;
   margin-right: auto;
 
@@ -63,9 +64,9 @@ const LogoWrapper = styled.div`
   }
 `
 
-const LogoBox = ({ darkTheme, handleDarkTheme, padding, margin }) => {
+const LogoBox = ({ darkTheme, handleDarkTheme, padding, margin, maxWidth }) => {
   return (
-    <LogoWrapper padding={padding} margin={margin}>
+    <LogoWrapper padding={padding} margin={margin} maxWidth={maxWidth}>
       <div className="title-box">
         <h1>
           Github <span>Jobs</span>
