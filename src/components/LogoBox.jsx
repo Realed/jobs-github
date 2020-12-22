@@ -9,6 +9,11 @@ const LogoWrapper = styled.div`
   width: 100%;
   display: flex;
   padding-bottom: 10px;
+  padding: ${({ padding }) => padding};
+  margin: ${({ margin }) => margin};
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 
   .title-box {
     width: 85%;
@@ -58,9 +63,9 @@ const LogoWrapper = styled.div`
   }
 `
 
-const LogoBox = ({ darkTheme, handleDarkTheme }) => {
+const LogoBox = ({ darkTheme, handleDarkTheme, padding, margin }) => {
   return (
-    <LogoWrapper>
+    <LogoWrapper padding={padding} margin={margin}>
       <div className="title-box">
         <h1>
           Github <span>Jobs</span>
@@ -87,7 +92,7 @@ const LogoBox = ({ darkTheme, handleDarkTheme }) => {
         )}
         {darkTheme && (
           <button
-            class="AppTemplate_appTemplate_header_themeSwitcher__2-A63 setlight"
+            className="AppTemplate_appTemplate_header_themeSwitcher__2-A63 setlight"
             aria-label="theme-switcher"
             onClick={handleDarkTheme}
           >
