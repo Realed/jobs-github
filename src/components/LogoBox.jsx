@@ -12,6 +12,16 @@ const LogoWrapper = styled.div`
   padding: ${({ padding }) => padding};
   margin: ${({ margin }) => margin};
 
+  ${({ bgWhite }) =>
+    bgWhite &&
+    css`
+      @media only screen and (max-width: 849px) {
+        background-color: ${colors.lightTheme.backColorAccent};
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px 0 5px 0;
+      }
+    `}
+
   max-width: ${({ maxWidth }) => maxWidth};
   margin-left: auto;
   margin-right: auto;
@@ -64,9 +74,21 @@ const LogoWrapper = styled.div`
   }
 `
 
-const LogoBox = ({ darkTheme, handleDarkTheme, padding, margin, maxWidth }) => {
+const LogoBox = ({
+  darkTheme,
+  handleDarkTheme,
+  padding,
+  margin,
+  maxWidth,
+  bgWhite,
+}) => {
   return (
-    <LogoWrapper padding={padding} margin={margin} maxWidth={maxWidth}>
+    <LogoWrapper
+      padding={padding}
+      margin={margin}
+      maxWidth={maxWidth}
+      bgWhite={bgWhite}
+    >
       <div className="title-box">
         <h1>
           Github <span>Jobs</span>

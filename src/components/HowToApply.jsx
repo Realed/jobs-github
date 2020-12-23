@@ -6,8 +6,20 @@ import fonts from "../styles/fonts"
 const ApplyWrapper = styled.div`
   width: 100%;
 
+  @media only screen and (max-width: 849px) {
+    padding: 10px 15px;
+    background-color: ${colors.lightTheme.backColorAccent};
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
   header {
-    padding: 10px 0;
+    @media only screen and (max-width: 849px) {
+      margin-top: 0;
+    }
+
+    margin: 10px 0;
+
     h1 {
       color: ${colors.lightTheme.grayColor};
       font-weight: bold;

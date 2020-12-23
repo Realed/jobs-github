@@ -46,6 +46,38 @@ const JobWrapper = styled.div`
   }
 
   .job-box {
+    .job-info-box {
+      @media only screen and (max-width: 850px) {
+        margin-top: 15px;
+        padding: 10px 15px;
+        background-color: ${colors.lightTheme.backColorAccent};
+        border-radius: 8px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+        .job-box-header {
+          margin-top: 0;
+        }
+
+        .logo-box {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .job-description {
+      @media only screen and (max-width: 850px) {
+        margin-top: 15px;
+        padding: 10px 15px;
+        background-color: ${colors.lightTheme.backColorAccent};
+        border-radius: 8px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+        .job-box-header {
+          margin-top: 0;
+        }
+      }
+    }
+
     header.job-box-header {
       margin-top: 15px;
       h1 {
@@ -137,7 +169,7 @@ const JobWrapper = styled.div`
       }
     }
     main {
-      padding-top: 15px;
+      padding-top: 10px;
 
       p {
         color: ${colors.lightTheme.mainColor};
@@ -187,7 +219,7 @@ const JobPage = ({ location }) => {
   return (
     <>
       <GlobalStyles />
-      <LogoBox padding="10px 20px" maxWidth="1100px" />
+      <LogoBox padding="10px 20px" maxWidth="1100px" bgWhite />
       <JobWrapper>
         <div className="back-box">
           <BackToSearch margin="20px 0" />
@@ -199,29 +231,33 @@ const JobPage = ({ location }) => {
           </HowToApply>
         </div>
         <div className="job-box">
-          <header className="job-box-header">
-            <h1>Job Info</h1>
-          </header>
-          <header className="title-box">
-            <h1 className="title">{job.title}</h1>
-            <div className="tags-box">
-              <h1 className="tag">{job.type}</h1>
-              <p className="time">{job.created_at}</p>
-            </div>
-          </header>
-          <div className="logo-box">
-            <div className="img-box">
-              <img src={job.company_logo} alt="Company Logo" />
-            </div>
-            <div className="company-name">
-              <h1>{job.company}</h1>
-              <p>{job.location}</p>
+          <div className="job-info-box">
+            <header className="job-box-header">
+              <h1>Job Info</h1>
+            </header>
+            <header className="title-box">
+              <h1 className="title">{job.title}</h1>
+              <div className="tags-box">
+                <h1 className="tag">{job.type}</h1>
+                <p className="time">{job.created_at}</p>
+              </div>
+            </header>
+            <div className="logo-box">
+              <div className="img-box">
+                <img src={job.company_logo} alt="Company Logo" />
+              </div>
+              <div className="company-name">
+                <h1>{job.company}</h1>
+                <p>{job.location}</p>
+              </div>
             </div>
           </div>
-          <header className="job-box-header">
-            <h1>Description</h1>
-          </header>
-          <main ref={jobDesc}></main>
+          <div className="job-description">
+            <header className="job-box-header">
+              <h1>Description</h1>
+            </header>
+            <main ref={jobDesc}></main>
+          </div>
         </div>
       </JobWrapper>
     </>
