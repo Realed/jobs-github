@@ -7,7 +7,10 @@ import fonts from "../styles/fonts"
 const JobCard = styled.div`
   width: 100%;
   min-height: 150px;
-  background-color: ${colors.lightTheme.backColorAccent};
+  background-color: ${({ darkTheme }) =>
+    darkTheme
+      ? colors.darkTheme.backColorAccent
+      : colors.lightTheme.backColorAccent};
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
   padding: 3px 10px;
@@ -42,6 +45,12 @@ const JobCard = styled.div`
     flex-direction: column;
     justify-content: space-around;
 
+    .company-box,
+    .time-box {
+      h1 {
+      }
+    }
+
     header,
     footer {
       height: 25%;
@@ -53,7 +62,11 @@ const JobCard = styled.div`
 
     .company-box {
       h1 {
-        color: ${colors.lightTheme.accentColor};
+        color: ${({ darkTheme }) =>
+          darkTheme
+            ? colors.darkTheme.mainColor
+            : colors.lightTheme.accentColor};
+
         font-family: ${fonts.titleAccentFont};
         font-size: 0.7em;
         font-weight: 600;
@@ -62,8 +75,8 @@ const JobCard = styled.div`
 
     .title-box {
       h1 {
-        font-family: ${fonts.mainFont};
-        font-weight: 400;
+        font-family: ${fonts.titleAccentFont};
+        font-weight: 800;
         color: ${colors.lightTheme.accentColor};
         font-size: 1.1em;
         margin-bottom: 10px;
@@ -79,8 +92,16 @@ const JobCard = styled.div`
         padding: 4px 5px;
         border-radius: 5px;
         font-family: ${fonts.titleAccentFont};
-        color: ${colors.lightTheme.accentColor};
-        border: 1px solid ${colors.lightTheme.accentColor};
+        color: ${({ darkTheme }) =>
+          darkTheme
+            ? colors.darkTheme.mainColor
+            : colors.lightTheme.accentColor};
+
+        border: 1px solid
+          ${({ darkTheme }) =>
+            darkTheme
+              ? colors.darkTheme.mainColor
+              : colors.lightTheme.accentColor};
       }
     }
 
@@ -97,7 +118,8 @@ const JobCard = styled.div`
   }
 
   &:hover {
-    background-color: #f8f8f8;
+    background-color: ${({ darkTheme }) =>
+      darkTheme ? "rgb(60, 60, 60)" : "#f8f8f8"};
     cursor: pointer;
   }
 `

@@ -69,14 +69,18 @@ const Home = ({ history }) => {
 
   return (
     <>
-      <GlobalStyles />
+      <GlobalStyles darkTheme={darkTheme} />
       <form action="">
         <HeaderMenu darkTheme={darkTheme} handleDarkTheme={handleDarkTheme} />
         <JobsBoxWrapper>
-          <Filter />
+          <Filter darkTheme={darkTheme} />
           <JobsWrapper>
             {jobs.map((job) => (
-              <JobCard key={id()} onClick={() => handleRedirect(job)}>
+              <JobCard
+                darkTheme={darkTheme}
+                key={id()}
+                onClick={() => handleRedirect(job)}
+              >
                 <div className="logo-box">
                   <img src={job.company_logo} alt="Job-Logo" />
                 </div>

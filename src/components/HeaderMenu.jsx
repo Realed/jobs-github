@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 //Components
 import LogoBox from "./LogoBox"
@@ -45,7 +45,15 @@ const SearchWrapper = styled.div`
       max-width: 790px;
       width: 90%;
       height: 60px;
-      background-color: ${colors.lightTheme.backColorAccent};
+      background-color: ${({ darkTheme }) =>
+        darkTheme
+          ? colors.darkTheme.backColorAccent
+          : colors.lightTheme.backColorAccent};
+      ${({ darkTheme }) =>
+        darkTheme &&
+        css`
+          border: 1px solid #555;
+        `}
       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
       padding: 5px 7px;
       border-radius: 4px;
@@ -53,12 +61,20 @@ const SearchWrapper = styled.div`
       align-items: center;
 
       input[type="text"] {
+        background-color: ${({ darkTheme }) =>
+          darkTheme
+            ? colors.darkTheme.backColorAccent
+            : colors.lightTheme.backColorAccent};
+        color: ${({ darkTheme }) =>
+          darkTheme
+            ? colors.darkTheme.mainColor
+            : colors.lightTheme.accentColor};
+
         width: 70%;
         height: 100%;
         border: none;
         font-family: ${fonts.mainFont};
         padding: 5px;
-        color: ${colors.lightTheme.mainColor};
         font-size: 0.8em;
 
         &:focus {
@@ -91,7 +107,7 @@ const HeaderMenu = ({ darkTheme, handleDarkTheme }) => {
     <>
       <MenuBox>
         <LogoBox darkTheme={darkTheme} handleDarkTheme={handleDarkTheme} />
-        <SearchWrapper>
+        <SearchWrapper darkTheme={darkTheme}>
           <div className="search-box">
             <div className="field-box">
               <input

@@ -50,7 +50,9 @@ const LogoWrapper = styled.div`
 
     button {
       border: 0;
-      background-color: ${colors.lightTheme.backColor};
+      background-color: ${({ darkTheme }) =>
+        darkTheme ? colors.darkTheme.backColor : colors.lightTheme.backColor};
+
       cursor: pointer;
       padding: 4px;
       border-radius: 50%;
@@ -88,6 +90,7 @@ const LogoBox = ({
       margin={margin}
       maxWidth={maxWidth}
       bgWhite={bgWhite}
+      darkTheme={darkTheme}
     >
       <div className="title-box">
         <h1>

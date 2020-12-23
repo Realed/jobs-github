@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 //Styles
 import colors from "../styles/colors"
@@ -55,6 +55,7 @@ const FilterWrapper = styled.div`
       width: 16px;
       height: 16px;
       margin-right: 8px;
+      cursor: pointer;
     }
   }
 
@@ -69,22 +70,33 @@ const FilterWrapper = styled.div`
     }
 
     input {
-      background-color: ${colors.lightTheme.backColorAccent};
+      background-color: ${({ darkTheme }) =>
+        darkTheme
+          ? colors.darkTheme.backColorAccent
+          : colors.lightTheme.backColorAccent};
+      color: ${({ darkTheme }) =>
+        darkTheme ? colors.darkTheme.mainColor : colors.lightTheme.accentColor};
+
+      ${({ darkTheme }) =>
+        darkTheme &&
+        css`
+          border: 1px solid #555;
+        `}
+
       width: 100%;
       height: 45px;
       padding: 0 15px;
       border: none;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
       border-radius: 5px;
-      color: ${colors.lightTheme.mainColor};
     }
   }
 `
 
-const Filter = () => {
+const Filter = ({ darkTheme }) => {
   return (
     <>
-      <FilterWrapper>
+      <FilterWrapper darkTheme={darkTheme}>
         <div className="time-box">
           <div className="time-check">
             <input type="checkbox" name="time" />

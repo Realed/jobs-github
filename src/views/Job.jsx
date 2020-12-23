@@ -10,7 +10,7 @@ import fonts from "../styles/fonts"
 import colors from "../styles/colors"
 
 const JobWrapper = styled.div`
-  padding: 0 20px;
+  padding: 0 20px 20px;
   display: flex;
   flex-direction: column;
   max-width: 1100px;
@@ -205,10 +205,15 @@ const JobPage = ({ location }) => {
   const applyMain = useRef()
   const jobDesc = useRef()
   const [job, setJob] = useState(location.state)
+  const [darkTheme, setDarkTheme] = useState(false)
 
   const renderHtml = () => {
     applyMain.current.innerHTML = location.state.how_to_apply
     jobDesc.current.innerHTML = location.state.description
+  }
+
+  const handleDarkTheme = () => {
+    setDarkTheme(!darkTheme)
   }
 
   useEffect(() => {
@@ -219,7 +224,13 @@ const JobPage = ({ location }) => {
   return (
     <>
       <GlobalStyles />
-      <LogoBox padding="10px 20px" maxWidth="1100px" bgWhite />
+      <LogoBox
+        padding="10px 20px"
+        maxWidth="1100px"
+        bgWhite
+        darkTheme={darkTheme}
+        handleDarkTheme={handleDarkTheme}
+      />
       <JobWrapper>
         <div className="back-box">
           <BackToSearch margin="20px 0" />

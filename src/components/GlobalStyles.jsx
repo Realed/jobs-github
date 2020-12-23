@@ -11,7 +11,11 @@ const GlobalStyles = createGlobalStyle`
         div#root{
             margin: 0;
             padding: 0;
-            background-color: ${colors.lightTheme.backColor};
+            background-color: ${({ darkTheme }) =>
+              darkTheme
+                ? colors.darkTheme.backColor
+                : colors.lightTheme.backColor}
+            /* background-color: ${colors.lightTheme.backColor}; */
         }
     }
 
@@ -28,10 +32,13 @@ const GlobalStyles = createGlobalStyle`
 
     h1,h2,h3,h4{
         font-family: ${fonts.titleFont};
-        color: ${colors.lightTheme.boldColor};
+        color: ${({ darkTheme }) =>
+          darkTheme ? colors.darkTheme.boldColor : colors.lightTheme.boldColor};
     }
 
     p,span,a, label {
+        color: ${({ darkTheme }) =>
+          darkTheme ? colors.darkTheme.boldColor : colors.lightTheme.boldColor};
         font-family: ${fonts.mainFont};
     }
 `
